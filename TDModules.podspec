@@ -93,6 +93,9 @@ Pod::Spec.new do |s|
 
   s.source_files  = "Classes", "Classes/**/*.{h,m}"
   #s.exclude_files = "Classes/Exclude"
+  s.resource_bundles = {
+      'TDModules' => ['Classes/**/*.{xib,png}']
+  }
 
   # s.public_header_files = "Classes/**/*.h"
 

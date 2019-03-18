@@ -23,7 +23,7 @@
 #pragma mark ============life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"test");
+
     self.presenter = [[TDUserLoginPresenter alloc] init];
     [self.presenter initWithView:self];
     

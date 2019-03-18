@@ -11,7 +11,9 @@
 @implementation Target_TDUserModule
 
 -(UIViewController *)Action_getUserLoginViewController:(NSDictionary *)params {
-    return [[TDUserloginViewController alloc] init];
+    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"TDModules" ofType:@"bundle"];
+    NSBundle *bundle = [NSBundle bundleWithPath:path];
+    return [[TDUserloginViewController alloc] initWithNibName:@"TDUserloginViewController" bundle:bundle];
 }
 
 @end

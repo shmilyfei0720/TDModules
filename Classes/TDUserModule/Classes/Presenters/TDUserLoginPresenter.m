@@ -29,7 +29,6 @@
 -(void)loginWithUserName:(NSString *)userName Password:(NSString *)pwd {
     
     ws(self)
-    ss(self, ws)
     [_model loginWithUserName:userName Password:pwd Success:^{
         if ([ws.view respondsToSelector:@selector(loginSuccess)]) {
             [ws.view loginSuccess];
