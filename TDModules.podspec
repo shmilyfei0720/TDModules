@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "TDModules"
-  s.version      = "0.0.1"
+  s.version      = "0.1.0"
   s.summary      = "天地业务组件demo"
 
   # This description is used to generate tags and improve search results.
@@ -91,12 +91,17 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
+#  s.source_files  = "Classes", "Classes/**/*.{h,m}"
   #s.exclude_files = "Classes/Exclude"
   s.resource_bundles = {
       'TDModules' => ['Classes/**/*.{xib,png}']
   }
 
+  s.subspec 'TDUserModule' do |suser|
+      suser.source_files = 'Classes/TDUserModule/**/*.{h,m}'
+  end
+  
+  
   # s.public_header_files = "Classes/**/*.h"
 
 
