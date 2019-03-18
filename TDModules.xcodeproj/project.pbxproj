@@ -195,12 +195,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TDModules/Pods-TDModules-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/TDMediator/TDMediator.framework",
+				"${BUILT_PRODUCTS_DIR}/TDModules/TDModules.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TDMediator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TDModules.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
