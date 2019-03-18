@@ -21,6 +21,11 @@
 @implementation TDUserloginViewController
 
 #pragma mark ============life cycle
+- (instancetype)init {
+    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"TDModules" ofType:@"bundle"];
+    NSBundle *bundle = [NSBundle bundleWithPath:path];
+    return [[TDUserloginViewController alloc] initWithNibName:@"TDUserloginViewController" bundle:bundle];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 
