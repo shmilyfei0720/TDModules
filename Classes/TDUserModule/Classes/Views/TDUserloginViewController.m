@@ -39,14 +39,18 @@
     _pwdTF.text = pwd;
 }
 -(void)loginSuccess {
-    NSLog(@"loginSuccess");
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"登录成功" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 -(void)loginFailWithErrorMassage:(NSString *)error {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:error preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
     }]];
-    [self.navigationController pushViewController:alert animated:YES];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 #pragma mark ============actions
 

@@ -6,6 +6,7 @@
 //
 
 #import "TDUserloginModel.h"
+#import <AFNetworking/AFNetworking.h>
 
 @implementation TDUserloginModel
 @synthesize pwd = _pwd;
@@ -22,16 +23,24 @@
 }
 
 - (void)loginWithUserName:(NSString *)userName Password:(NSString *)pwd Success:(void (^)(void))success Fail:(void (^)(int))fail {
-    NSLog(@"web service start");
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        [NSThread sleepForTimeInterval:1.5];
-        int i = arc4random() % 100 ;
-        if (i > 50) {
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+    NSString *url =[NSString stringWithFormat:@"http://39.106.178.186/userlogin?name=%@&pwd=%@",userName,pwd];
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        int ret = [[responseObject objectForKey:@"ret"] intValue];
+        if (ret == 0 && success) {
             success();
         }else{
+            if (fail) {
+                fail(-1);
+            }
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (fail) {
             fail(-1);
         }
-    });
+    }];
 }
 
 @end

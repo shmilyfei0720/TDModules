@@ -14,7 +14,7 @@
 
 @interface TDUserLoginPresenter ()
 @property (nonatomic,weak) id<TDUserLoginViewDelegate> view;
-@property (nonatomic,strong) id<TDUserLoginModelDelegate> model;
+@property (nonatomic,strong) TDUserloginModel *model;
 @end
 
 @implementation TDUserLoginPresenter
